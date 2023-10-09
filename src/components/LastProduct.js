@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function LastProduct() {
-    //accedemos al endpoint de last product
+  //accedemos al endpoint de last product
   const [lastProductData, setLastProduct] = useState();
 
   useEffect(() => {

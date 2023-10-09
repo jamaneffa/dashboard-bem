@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 function TopData() {
-
   //accedemos al endpoint de usuarios
   const [usersData, setUsersData] = useState({ count: 0, users: [] });
 
@@ -47,7 +46,6 @@ function TopData() {
   const [countCategories, setCount] = useState(0); // Estado para almacenar el valor de count
 
   useEffect(() => {
-    // Hacer la solicitud GET al endpoint
     fetch('http://localhost:3030/api/products/categories')
     //fetch('https://bem-cvku.onrender.com/api/products/categories')
       .then(response => response.json())

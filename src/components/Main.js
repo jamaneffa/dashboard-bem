@@ -2,6 +2,7 @@ import Heading from './Heading';
 import LastProduct from './LastProduct';
 import Categories from './Categories';
 import TopData from './TopData'
+import AllProducts from './AllProducts';
 
 function Main() {
     return (
@@ -13,6 +14,7 @@ function Main() {
             <LastProduct></LastProduct>
             <Categories></Categories>
           </div>
+          <AllProducts></AllProducts>
         </div>
       </div>
      );

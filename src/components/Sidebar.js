@@ -10,8 +10,6 @@ function Sidebar() {
 
         <hr className="sidebar-divider" />
 
-        <div className="sidebar-heading">Actions</div>
-
         <li className="nav-item">
           <a className="nav-link collapsed" href="/">
             <span>Pages</span>
