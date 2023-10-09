@@ -12,7 +12,7 @@ function Sidebar() {
 
         <li className="nav-item">
           <a className="nav-link collapsed" href="/">
-            <span>Pages</span>
+            <span>Listado de Productos</span>
           </a>
         </li>
 

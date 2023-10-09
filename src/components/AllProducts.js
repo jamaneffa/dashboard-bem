@@ -21,9 +21,10 @@ function AllProducts() {
   }, []);
    // El array vacío como segundo argumento asegura que esta función se ejecute solo una vez al montar el componente
    
-   const cellStyle = { width: '25%', textAlign: 'center' }
-   const tableStyle = { width: '80%', margin: 'auto'}
+   const cellStyle = { width: '15%', textAlign: 'center' }
+   const tableStyle = { width: '100%', margin: 'auto'}
    const titleStyle = { textAlign: 'center', marginBottom: '2%' };
+   const loadingTableStyle = { textAlign: 'center'}
 
    return (
      <div>
@@ -31,6 +32,7 @@ function AllProducts() {
       <table style={tableStyle}>
         <thead>
           <tr>
+            <th style={cellStyle}>Sku</th>
             <th style={cellStyle}>Nombre</th>
             <th style={cellStyle}>Precio</th>
             <th style={cellStyle}>Stock</th>
@@ -41,6 +43,7 @@ function AllProducts() {
           {listProductsData.products ? (
             listProductsData.products.map(product => (
               <tr key={product.sku}>
+                <td style={cellStyle}>{product.sku}</td>
                 <td style={cellStyle}>{product.name}</td>
                 <td style={cellStyle}>${product.price}</td>
                 <td style={cellStyle}>{product.stock === 0 ? "Sin Stock" : product.stock}</td>
@@ -49,7 +52,7 @@ function AllProducts() {
             ))
           ) : (
             <tr>
-              <td colSpan="3" style={{ textAlign: 'center' }}>Cargando productos...</td>
+              <td colSpan="5" style={loadingTableStyle}>Cargando productos...</td>
             </tr>
           )}
         </tbody>
