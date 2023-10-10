@@ -58,6 +58,7 @@ function TopData() {
         console.error('Error al obtener datos:', error);
       });
   }, []); // El array vacío como segundo argumento asegura que esta función se ejecute solo una vez al montar el component
+  
   return (
       <div className="row">
       {/* Users in DB */}
