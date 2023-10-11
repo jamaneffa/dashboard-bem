@@ -1,7 +1,7 @@
 import Heading from './Heading';
-import LastProduct from './LastProduct';
-import Categories from './Categories';
 import TopData from './TopData'
+import LastProduct from '../products/LastProduct';
+import Categories from '../products/Categories';
 import Footer from './Footer';
 
 function Main() {

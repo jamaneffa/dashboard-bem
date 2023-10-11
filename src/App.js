@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.css';
+import './assets/styles/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Dashboard from './components/Dashboard';
-import AllUsers from './components/AllUsers';
-import AllProducts from './components/AllProducts';
-import UserDetail from './components/UserDetail';
-import ProductDetail from './components/ProductDetail';
+import Dashboard from './components/main/Dashboard';
+import AllUsers from './components/users/AllUsers';
+import AllProducts from './components/products/AllProducts';
+import UserDetail from './components/users/UserDetail';
+import ProductDetail from './components/products/ProductDetail';
 
 function App() {
   return (

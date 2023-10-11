@@ -13,16 +13,16 @@ function Sidebar() {
       <hr className="sidebar-divider" />
 
       <li className="nav-item">
+        <Link to="/allproducts" className="nav-link">
+          <span>Listado de Productos</span>
+        </Link>
+      </li>
+      <li className="nav-item">
         <Link to="/allusers" className="nav-link">
           <span>Listado de Usuarios</span>
         </Link>
       </li>
 
-      <li className="nav-item">
-        <Link to="/allproducts" className="nav-link">
-          <span>Listado de Productos</span>
-        </Link>
-      </li>
     </ul>
   );
 }
