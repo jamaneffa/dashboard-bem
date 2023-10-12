@@ -27,10 +27,7 @@ function AllUsers() {
       });
   });
    
-  const cellStyle = { width: '15%', textAlign: 'center' }
-  const tableStyle = { width: '100%', margin: 'auto'}
   const titleStyle = { textAlign: 'center', marginBottom: '2%' };
-  const loadingTableStyle = { textAlign: 'center'}
 
   return (
     <div id="wrapper">
@@ -41,35 +38,37 @@ function AllUsers() {
               <Heading />
               <TopData />
               <h3 style={titleStyle}>Listado de Usuarios</h3>
-              <table style={tableStyle}>
-                <thead>
-                  <tr>
-                    <th style={cellStyle}>Id</th>
-                    <th style={cellStyle}>Nombre Completo</th>
-                    <th style={cellStyle}>Email</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {listUsersData.users ? (
-                    listUsersData.users.map(user => (
-                        // Agregar codigo para qe cualquier celda sea linkeable al detalle de usuario
-                      <tr key={user.id}>
-                        <td style={cellStyle}><Link to={`/user/${user.id}`}>{user.id}</Link></td>
-                        <td style={cellStyle}><Link to={`/user/${user.id}`}>{user.name}</Link></td>
-                        <td style={cellStyle}><Link to={`/user/${user.id}`}>{user.email}</Link></td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan="3" style={loadingTableStyle}>Cargando usuarios...</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
+              <div className="row">
+                {listUsersData.users ? (
+                  listUsersData.users.map(user => (
+                    <div key={user.id} className="col-md-4 mb-4">
+                      <div className="card border-left-warning shadow h-100 py-2">
+                        <div className="card-body">
+                          <div className="row no-gutters align-items-center">
+                            <div className="col mr-2">                     
+                              <div className="h5 mb-0 font-weight-bold text-gray-800">
+                                {user.name}
+                              </div><br></br>
+                              <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                              <Link to={`/user/${user.id}`}>Ver informacion de usuario</Link>
+                              </div>
+                            </div>
+                            <div className="col-auto">
+                              <i className="fas fa-user-check fa-2x text-gray-300"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>Cargando usuarios...</p>
+                )}
+              </div>
             </div>
           </div>
-          <Footer />
-        </div>
+        <Footer />
+      </div>
     </div>
   );
 }

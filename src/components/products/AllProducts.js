@@ -27,10 +27,7 @@ function AllProducts() {
       });
   });
    
-  const cellStyle = { width: '15%', textAlign: 'center' }
-  const tableStyle = { width: '100%', margin: 'auto'}
   const titleStyle = { textAlign: 'center', marginBottom: '2%' };
-  const loadingTableStyle = { textAlign: 'center'}
 
   return (
     <div id="wrapper">
@@ -41,38 +38,39 @@ function AllProducts() {
             <Heading />
             <TopData />
             <h3 style={titleStyle}>Listado de Productos</h3>
-            <table style={tableStyle}>
-              <thead>
-                <tr>
-                  <th style={cellStyle}>Sku</th>
-                  <th style={cellStyle}>Nombre</th>
-                  <th style={cellStyle}>Precio</th>
-                  {/* <th style={cellStyle}>Stock</th>
-                  <th style={cellStyle}>Descuento</th> */}
-                </tr>
-              </thead>
-              <tbody>
-                {listProductsData.products ? (
-                  listProductsData.products.map(product => (
-                    // Agregar codigo para qe cualquier celda sea linkeable al detalle de producto
-                    <tr key={product.sku}>
-                      <td style={cellStyle}><Link to={`/product/${product.sku}`}>{product.sku}</Link></td>
-                      <td style={cellStyle}><Link to={`/product/${product.sku}`}>{product.name}</Link></td> 
-                      <td style={cellStyle}><Link to={`/product/${product.sku}`}>${product.price}</Link></td>
-                      {/* <td style={cellStyle}>{product.stock === 0 ? "Sin Stock" : product.stock}</td>
-                      <td style={cellStyle}>{product.discount === 0 ? "No tiene descuento" : product.discount + " %"}</td> */}
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="3" style={loadingTableStyle}>Cargando productos...</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+            <div className="row">
+              {listProductsData.products ? (
+                listProductsData.products.map(product => (
+                  <div key={product.sku} className="col-md-4 mb-4">
+                    <div className="card border-left-primary shadow h-100 py-2">
+                      <div className="card-body">
+                        <div className="row no-gutters align-items-center">
+                          <div className="col mr-2">                     
+                            <div className="font-weight-bold text-warning text-uppercase mb-1">
+                              SKU: {product.sku}
+                            </div>
+                            <div className="h5 mb-0 font-weight-bold text-gray-800">
+                              {product.name}
+                            </div><br></br>
+                            <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            <Link to={`/product/${product.sku}`}>Ver detalle</Link>
+                            </div>
+                          </div>
+                          <div className="col-auto">
+                            <i className="fas fa-user-check fa-2x text-gray-300"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>Cargando productos...</p>
+              )}
+            </div>
           </div>
         </div>
-            <Footer />
+        <Footer />
       </div>
     </div>
   );
