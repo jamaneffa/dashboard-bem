@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function Categories() {
-  //accedemos al endpoint de productos
+  //usamos endpoint de productos
   const [categoriesData, setCategoriesData] = useState({ countByCategory: 0});
 
   useEffect(() => {

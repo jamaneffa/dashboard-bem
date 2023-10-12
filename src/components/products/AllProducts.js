@@ -7,7 +7,7 @@ import TopData from '../main/TopData';
 import Footer from '../main/Footer';
 
 function AllProducts() {
-  // Accedemos al endpoint de productos
+  // usamos endpoint de productos
   const [listProductsData, setListProductsData] = useState({ count: 0, countByCategory: 0, product: [] });
 
   useEffect(() => {
@@ -37,6 +37,7 @@ function AllProducts() {
           <div className="container-fluid">
             <Heading />
             <TopData />
+            <hr className="sidebar-divider" />
             <h3 style={titleStyle}>Listado de Productos</h3>
             <div className="row">
               {listProductsData.products ? (

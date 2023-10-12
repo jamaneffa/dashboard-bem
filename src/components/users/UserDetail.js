@@ -8,7 +8,7 @@ import Footer from '../main/Footer';
 
 function UserDetail() {
   const { id } = useParams();
-  //accedemos al endpoint de last product
+  //usamos endpoint de detalle de usuario
   const [userDetailData, setUserDetailData] = useState({user: [], avatar:''});
 
   useEffect(() => {
@@ -39,6 +39,8 @@ function UserDetail() {
             <div className="container-fluid">
               <Heading />
               <TopData />
+              <hr className="sidebar-divider" />
+              <br></br>
               <div className="row">
                 <div className="col-lg-6 mb-4">
                   <div className="card shadow mb-4">

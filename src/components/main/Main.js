@@ -11,6 +11,8 @@ function Main() {
           <div className="container-fluid">
             <Heading />
             <TopData />
+            <hr className="sidebar-divider" />
+            <br></br>
             <div className="row">
               <LastProduct />
               <Categories />

@@ -8,7 +8,7 @@ import Footer from '../main/Footer';
 
 function ProductDetail() {
   const { sku } = useParams();
-  //accedemos al endpoint de last product
+  //usamos endpoint de detalle de producto
   const [productDetailData, setProductDetailData] = useState({product: [], image:''});
 
   useEffect(() => {
@@ -39,6 +39,8 @@ function ProductDetail() {
           <div className="container-fluid">
             <Heading />
             <TopData />
+            <hr className="sidebar-divider" />
+            <br></br>
             <div className="row">
               <div className="col-lg-6 mb-4">
                 <div className="card shadow mb-4">

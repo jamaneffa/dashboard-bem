@@ -8,7 +8,7 @@ import Footer from '../main/Footer';
 
 
 function AllUsers() {
-  // Accedemos al endpoint de usuarios
+  // usamos  endpoint de usuarios
   const [listUsersData, setListUsersData] = useState({ count: 0, users: [] });
 
   useEffect(() => {
@@ -37,6 +37,7 @@ function AllUsers() {
             <div className="container-fluid">
               <Heading />
               <TopData />
+              <hr className="sidebar-divider" />
               <h3 style={titleStyle}>Listado de Usuarios</h3>
               <div className="row">
                 {listUsersData.users ? (

@@ -9,9 +9,7 @@ function Sidebar() {
           <span>Home</span>
         </Link>
       </li>
-
       <hr className="sidebar-divider" />
-
       <li className="nav-item">
         <Link to="/allproducts" className="nav-link">
           <span>Listado de Productos</span>
@@ -22,7 +20,6 @@ function Sidebar() {
           <span>Listado de Usuarios</span>
         </Link>
       </li>
-
     </ul>
   );
 }

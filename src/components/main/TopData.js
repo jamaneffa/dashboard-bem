@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function TopData() {
-  //accedemos al endpoint de usuarios
+  //usamos endpoint de usuarios
   const [usersData, setUsersData] = useState({ count: 0, users: [] });
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function TopData() {
   }, []);
 
 
-  //accedemos al endpoint de productos
+  //usamos endpoint de productos
   const [productsData, setProductsData] = useState({ count: 0, countByCategory: 0, products: [] });
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function TopData() {
       });
   }, []);
 
-  //accedemos al endpoint de categorias
+  //usamos endpoint de categorias
   const [countCategories, setCount] = useState(0); // Estado para almacenar el valor de count
 
   useEffect(() => {
