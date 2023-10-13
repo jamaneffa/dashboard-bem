@@ -27,6 +27,25 @@ function UserDetail() {
       });
     });
 
+    //usamos endpoint de detalle de usuario
+  const [orderDetailData, setOrderDetailData] = useState({total_orders: 0, total_orders_amount:0});
+
+  useEffect(() => {
+
+    fetch(`http://localhost:3030/api/users/userOrders/${id}`)
+    //fetch(`https://bem-cvku.onrender.com/api/users/userOrders/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setOrderDetailData({
+            total_orders : data.total_orders,
+            total_orders_amount: data.total_orders_amount
+        });
+      })
+      .catch((error) => {
+        console.error('Error al obtener el detalle de ventas:', error);
+      });
+    });
+
     if (userDetailData === undefined) {
       return <p>Cargando</p>;
     }
@@ -54,6 +73,14 @@ function UserDetail() {
                         <h2>{userDetailData.user.name}</h2>
                         <h6>Correo Electronico: {userDetailData.user.email}</h6>
                         <h6>Direccion: {userDetailData.user.address}</h6>
+                        {orderDetailData.total_orders === 0 ? (
+                          <h6>Aún no ha realizado ninguna compra</h6>
+                        ) : (
+                          <div>
+                            <h6>Cantidad de Compras Realizadas: {orderDetailData.total_orders}</h6>
+                            <h6>Total Gastado: $ {orderDetailData.total_orders_amount}</h6>
+                          </div>
+                        )}
                     </div>
                   </div>
                 </div>
