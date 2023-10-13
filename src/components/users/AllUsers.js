@@ -54,9 +54,6 @@ function AllUsers() {
                               <Link to={`/user/${user.id}`}>Ver informacion de usuario</Link>
                               </div>
                             </div>
-                            <div className="col-auto">
-                              <i className="fas fa-user-check fa-2x text-gray-300"></i>
-                            </div>
                           </div>
                         </div>
                       </div>

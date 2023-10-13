@@ -9,7 +9,7 @@ import Footer from '../main/Footer';
 function UserDetail() {
   const { id } = useParams();
   //usamos endpoint de detalle de usuario
-  const [userDetailData, setUserDetailData] = useState({user: [], avatar:''});
+  const [userDetailData, setUserDetailData] = useState({user: []});
 
   useEffect(() => {
 
@@ -18,8 +18,7 @@ function UserDetail() {
       .then((response) => response.json())
       .then((data) => {
         setUserDetailData({
-            user : data.user,
-            avatar: data.avatar
+            user : data.user
         });
       })
       .catch((error) => {
@@ -49,7 +48,7 @@ function UserDetail() {
                     </div>
                     <div className="card-body">
                         <div className="text-center">
-                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={userDetailData.avatar} alt="user"/>
+                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={userDetailData.user.avatar} alt="user"/>
                         </div>
                         <h2>{userDetailData.user.name}</h2>
                         <h6>Correo Electronico: {userDetailData.user.email}</h6>

@@ -29,7 +29,7 @@ function LastProduct() {
                 </div>
                 <div className="card-body">
                   <div className="text-center">
-                      <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={lastProductData.product.image} alt="product"/>
+                      <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={lastProductData.product.image_url} alt="product"/>
                   </div>
                   <h3>{lastProductData.product.name}</h3>
                   <p>{lastProductData.product.detail}</p>

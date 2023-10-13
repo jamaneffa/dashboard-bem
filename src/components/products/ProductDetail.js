@@ -9,7 +9,7 @@ import Footer from '../main/Footer';
 function ProductDetail() {
   const { sku } = useParams();
   //usamos endpoint de detalle de producto
-  const [productDetailData, setProductDetailData] = useState({product: [], image:''});
+  const [productDetailData, setProductDetailData] = useState({product: [], image_url:''});
 
   useEffect(() => {
 
@@ -19,7 +19,7 @@ function ProductDetail() {
       .then((data) => {
         setProductDetailData({
             product : data.product,
-            image: data.image
+            image_url: data.image_url
         });
       })
       .catch((error) => {
@@ -49,7 +49,7 @@ function ProductDetail() {
                   </div>
                   <div className="card-body">
                       <div className="text-center">
-                          <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={productDetailData.image} alt="product"/>
+                          <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={productDetailData.image_url} alt="product"/>
                       </div>
                       <h2>{productDetailData.product.name}</h2>
                       <h6>{productDetailData.product.detail}</h6>
