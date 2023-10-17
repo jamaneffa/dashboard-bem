@@ -13,6 +13,10 @@ function AllUsers() {
   // usamos  endpoint de usuarios
   const [listUsersData, setListUsersData] = useState({ count: 0, users: [] });
 
+  //creamos variables y estado para la paginacion
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 9;
+
   useEffect(() => {
     fetch('http://localhost:3030/api/users')
     //fetch('https://bem-cvku.onrender.com/api/users')
@@ -30,7 +34,7 @@ function AllUsers() {
   });
    
   const titleStyle = { textAlign: 'center', marginBottom: '2%' };
-  const linkStyle = { textAlign: 'left', marginBottom: '2%' };
+  const pagButtonsStyle = { marginBottom: '2%' };
 
   return (
     <div id="wrapper">
@@ -44,7 +48,9 @@ function AllUsers() {
               <h3 style={titleStyle}>Listado de Usuarios</h3>
               <div className="row">
                 {listUsersData.users ? (
-                  listUsersData.users.map(user => (
+                  listUsersData.users
+                  .slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage)
+                  .map(user => (
                     <div key={user.id} className="col-md-4 mb-4">
                       <div className="card border-left-warning shadow h-100 py-2">
                         <div className="card-body">
@@ -66,7 +72,18 @@ function AllUsers() {
                   <p>Cargando usuarios...</p>
                 )}
               </div>
-              <h5 style={linkStyle}><Link to={`/`}><FaHouseUser/> Ir al Inicio</Link></h5>
+              {listUsersData.users.length > productsPerPage ? (
+              <div className="paginationButtons" style={pagButtonsStyle}>
+                <button
+                  onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
+                  disabled={currentPage === 1}>Anterior</button>
+                <button
+                  onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
+                  disabled={currentPage * productsPerPage >= listUsersData.users.length}>Siguiente</button>
+              </div>
+              ): (<p></p>)}
+              <hr className="sidebar-divider" />
+              <h5 style={titleStyle}><Link to={`/`}><FaHouseUser/> Ir al Inicio</Link></h5>
             </div>
           </div>
         <Footer />

@@ -12,6 +12,10 @@ function AllProducts() {
   // usamos endpoint de productos
   const [listProductsData, setListProductsData] = useState({ count: 0, countByCategory: 0, products: [] });
 
+  //creamos variables y estado para la paginacion
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 9;
+
   useEffect(() => {
     fetch('http://localhost:3030/api/products')
     //fetch('https://bem-cvku.onrender.com/api/products')
@@ -30,7 +34,7 @@ function AllProducts() {
   });
    
   const titleStyle = { textAlign: 'center', marginBottom: '2%' };
-  const linkStyle = { textAlign: 'left', marginBottom: '2%' };
+  const pagButtonsStyle = { marginBottom: '2%' };
 
   return (
     <div id="wrapper">
@@ -44,7 +48,9 @@ function AllProducts() {
             <h3 style={titleStyle}>Listado de Productos</h3>
             <div className="row">
               {listProductsData.products ? (
-                listProductsData.products.map(product => (
+                listProductsData.products
+                .slice((currentPage - 1) * productsPerPage, currentPage * productsPerPage)
+                .map(product => (
                   <div key={product.sku} className="col-md-4 mb-4">
                     <div className="card border-left-primary shadow h-100 py-2">
                       <div className="card-body">
@@ -69,7 +75,18 @@ function AllProducts() {
                 <p>Cargando productos...</p>
               )}
             </div>
-            <h5 style={linkStyle}><Link to={`/`}><FaHouseUser/> Ir al Inicio</Link></h5>
+            {listProductsData.products.length > productsPerPage ? (
+            <div className="paginationButtons" style={pagButtonsStyle}>
+              <button
+                onClick={() => setCurrentPage((prevPage) => prevPage - 1)}
+                disabled={currentPage === 1}>Anterior</button>
+              <button
+                onClick={() => setCurrentPage((prevPage) => prevPage + 1)}
+                disabled={currentPage * productsPerPage >= listProductsData.products.length}>Siguiente</button>
+            </div>
+            ): (<p></p>)}
+            <hr className="sidebar-divider" />
+            <h5 style={titleStyle}><Link to={`/`}><FaHouseUser/> Ir al Inicio</Link></h5>
           </div>
         </div>
         <Footer />
