@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import { FaUser } from 'react-icons/fa';
+
 import Sidebar from '../main/Sidebar';
 import TopData from '../main/TopData';
 import Heading from '../main/Heading';
@@ -44,7 +46,7 @@ function UserDetail() {
                 <div className="col-lg-6 mb-4">
                   <div className="card shadow mb-4">
                     <div className="card-header py-3">
-                        <h6 className="m-0 font-weight-bold text-primary">Informacion de Usuario</h6>
+                    <h6 className="m-0 font-weight-bold text-primary"><FaUser/> Informacion de Usuario</h6>
                     </div>
                     <div className="card-body">
                         <div className="text-center">
@@ -64,7 +66,7 @@ function UserDetail() {
                             <h6>Total Gastado: $ {userDetailData.user.total_orders_amount}</h6>
                           </div>
                         )}
-                        <Link to={`/allusers`}>Volver al listado de usuarios</Link>  
+                        <Link to={`/allusers`}>Volver</Link>  
                     </div>
                   </div>
                 </div>

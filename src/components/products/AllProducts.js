@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { FaHouseUser } from 'react-icons/fa';
+
 import Sidebar from '../main/Sidebar';
 import Heading from '../main/Heading';
 import TopData from '../main/TopData';
@@ -67,7 +69,7 @@ function AllProducts() {
                 <p>Cargando productos...</p>
               )}
             </div>
-            <h5 style={linkStyle}><Link to={`/`}>Volver al inicio</Link></h5>
+            <h5 style={linkStyle}><Link to={`/`}><FaHouseUser/> Ir al Inicio</Link></h5>
           </div>
         </div>
         <Footer />

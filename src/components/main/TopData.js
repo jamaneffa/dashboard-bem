@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { FaUser, FaProductHunt, FaClipboard} from "react-icons/fa";
 
 function TopData() {
   //usamos endpoint de usuarios
@@ -67,13 +68,11 @@ function TopData() {
             <div className="row no-gutters align-items-center">
               <div className="col mr-2">
                 <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                  Total de Usuarios
+                Total de Usuarios 
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{usersData.count}</div>
               </div>
-              <div className="col-auto">
-                <i className="fas fa-user-check fa-2x text-gray-300"></i>
-              </div>
+              <FaUser />  
             </div>
           </div>
         </div>
@@ -89,9 +88,7 @@ function TopData() {
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{productsData.count}</div>
               </div>
-              <div className="col-auto">
-                <i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
-              </div>
+              <FaProductHunt />
             </div>
           </div>
         </div>
@@ -107,9 +104,7 @@ function TopData() {
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{categoriesData.count}</div>
               </div>
-              <div className="col-auto">
-                <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
-              </div>
+              <FaClipboard />
             </div>
           </div>
         </div>

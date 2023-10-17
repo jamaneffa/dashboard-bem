@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import { FaProductHunt } from 'react-icons/fa';
+
 import Sidebar from '../main/Sidebar';
 import TopData from '../main/TopData';
 import Heading from '../main/Heading';
@@ -44,7 +46,7 @@ function ProductDetail() {
               <div className="col-lg-6 mb-4">
                 <div className="card shadow mb-4">
                   <div className="card-header py-3">
-                      <h6 className="m-0 font-weight-bold text-primary">Detalle de Producto</h6>
+                      <h6 className="m-0 font-weight-bold text-primary"><FaProductHunt/> Detalle de Producto</h6>
                   </div>
                   <div className="card-body">
                       <div className="text-center">
@@ -65,7 +67,7 @@ function ProductDetail() {
                       ) : (
                         <h6>Descuento: {productDetailData.product.discount} %</h6>
                       )}  
-                      <Link to={`/allproducts`}>Volver al listado de productos</Link>                      
+                      <Link to={`/allproducts`}>Volver</Link>                      
                   </div>
                 </div>
               </div>
