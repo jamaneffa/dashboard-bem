@@ -28,6 +28,7 @@ function AllUsers() {
   });
    
   const titleStyle = { textAlign: 'center', marginBottom: '2%' };
+  const linkStyle = { textAlign: 'left', marginBottom: '2%' };
 
   return (
     <div id="wrapper">
@@ -63,6 +64,7 @@ function AllUsers() {
                   <p>Cargando usuarios...</p>
                 )}
               </div>
+              <h5 style={linkStyle}><Link to={`/`}>Volver al inicio</Link></h5>
             </div>
           </div>
         <Footer />

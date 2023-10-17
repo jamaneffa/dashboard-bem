@@ -43,7 +43,7 @@ function TopData() {
   }, []);
 
   //usamos endpoint de categorias
-  const [countCategories, setCount] = useState(0); // Estado para almacenar el valor de count
+  const [categoriesData, setCategoriesData] = useState({count: 0, categories: []}); // Estado para almacenar el valor de count
 
   useEffect(() => {
     fetch('http://localhost:3030/api/products/categories')
@@ -51,8 +51,7 @@ function TopData() {
       .then(response => response.json())
       .then(data => {
         // Extraer el valor de count de la respuesta
-        const countValue = data.count;
-        setCount(countValue); // Actualizar el estado con el valor de count
+        setCategoriesData(data); // Actualizar el estado con el valor de count
       })
       .catch(error => {
         console.error('Error al obtener datos:', error);
@@ -106,7 +105,7 @@ function TopData() {
                 <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
                   Total De Categorias
                 </div>
-                <div className="h5 mb-0 font-weight-bold text-gray-800">{countCategories}</div>
+                <div className="h5 mb-0 font-weight-bold text-gray-800">{categoriesData.count}</div>
               </div>
               <div className="col-auto">
                 <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>

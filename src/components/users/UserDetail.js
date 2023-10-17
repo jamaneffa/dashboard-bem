@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import Sidebar from '../main/Sidebar';
 import TopData from '../main/TopData';
@@ -64,6 +64,7 @@ function UserDetail() {
                             <h6>Total Gastado: $ {userDetailData.user.total_orders_amount}</h6>
                           </div>
                         )}
+                        <Link to={`/allusers`}>Volver al listado de usuarios</Link>  
                     </div>
                   </div>
                 </div>

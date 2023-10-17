@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import Sidebar from '../main/Sidebar';
 import TopData from '../main/TopData';
@@ -64,7 +64,8 @@ function ProductDetail() {
                         <h6>Descuento: Este producto no tiene descuento</h6>
                       ) : (
                         <h6>Descuento: {productDetailData.product.discount} %</h6>
-                      )}                        
+                      )}  
+                      <Link to={`/allproducts`}>Volver al listado de productos</Link>                      
                   </div>
                 </div>
               </div>

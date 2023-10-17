@@ -28,6 +28,7 @@ function AllProducts() {
   });
    
   const titleStyle = { textAlign: 'center', marginBottom: '2%' };
+  const linkStyle = { textAlign: 'left', marginBottom: '2%' };
 
   return (
     <div id="wrapper">
@@ -66,6 +67,7 @@ function AllProducts() {
                 <p>Cargando productos...</p>
               )}
             </div>
+            <h5 style={linkStyle}><Link to={`/`}>Volver al inicio</Link></h5>
           </div>
         </div>
         <Footer />
