@@ -52,6 +52,9 @@ function UserDetail() {
                         </div>
                         <h2>{userDetailData.user.name}</h2>
                         <h6>Correo Electronico: {userDetailData.user.email}</h6>
+                        <h6>Pais: {userDetailData.user.country}</h6>
+                        <h6>Provincis: {userDetailData.user.state}</h6>
+                        <h6>Ciudad: {userDetailData.user.city} - C.P. {userDetailData.user.cp}</h6>
                         <h6>Direccion: {userDetailData.user.address}</h6>
                         {userDetailData.user.total_orders === 0 ? (
                           <h6>Aún no ha realizado ninguna compra</h6>

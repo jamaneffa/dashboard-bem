@@ -8,7 +8,7 @@ import Footer from '../main/Footer';
 
 function AllProducts() {
   // usamos endpoint de productos
-  const [listProductsData, setListProductsData] = useState({ count: 0, countByCategory: 0, product: [] });
+  const [listProductsData, setListProductsData] = useState({ count: 0, countByCategory: 0, products: [] });
 
   useEffect(() => {
     fetch('http://localhost:3030/api/products')
@@ -19,7 +19,7 @@ function AllProducts() {
         setListProductsData({
           count: data.count,
           countByCategory: data.countByCategory,
-          products: data.product
+          products: data.products
         });
       })
       .catch(error => {

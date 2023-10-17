@@ -9,7 +9,7 @@ import Footer from '../main/Footer';
 function ProductDetail() {
   const { sku } = useParams();
   //usamos endpoint de detalle de producto
-  const [productDetailData, setProductDetailData] = useState({product: [], image_url:''});
+  const [productDetailData, setProductDetailData] = useState({product: []});
 
   useEffect(() => {
 
@@ -18,8 +18,7 @@ function ProductDetail() {
       .then((response) => response.json())
       .then((data) => {
         setProductDetailData({
-            product : data.product,
-            image_url: data.image_url
+            product : data.product
         });
       })
       .catch((error) => {
@@ -49,13 +48,23 @@ function ProductDetail() {
                   </div>
                   <div className="card-body">
                       <div className="text-center">
-                          <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={productDetailData.image_url} alt="product"/>
+                          <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={productDetailData.product.image_url} alt="product"/>
                       </div>
                       <h2>{productDetailData.product.name}</h2>
-                      <h6>{productDetailData.product.detail}</h6>
+                      <h6>Descripcion: {productDetailData.product.description}</h6>
+                      <h6>Categoria: {productDetailData.product.category}</h6>
+                      <h6>Marca: {productDetailData.product.brand}</h6>
                       <h6>Precio: $ {productDetailData.product.price}</h6>
-                      <h6>Stock Disponible: {productDetailData.product.stock}</h6>
-                      <h6>Descuento: {productDetailData.product.discount} %</h6>  
+                      {productDetailData.product.stock === 0 ? (
+                        <h6>Stock Disponible: Sin Stock</h6>
+                      ) : (
+                        <h6>Stock Disponible: {productDetailData.product.stock}</h6>
+                      )}
+                      {productDetailData.product.discount === 0 ? (
+                        <h6>Descuento: Este producto no tiene descuento</h6>
+                      ) : (
+                        <h6>Descuento: {productDetailData.product.discount} %</h6>
+                      )}                        
                   </div>
                 </div>
               </div>
