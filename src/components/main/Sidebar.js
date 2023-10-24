@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaUsers, FaProductHunt, FaHouseUser} from "react-icons/fa";
+import { FaUsers, FaProductHunt, FaHouseUser, FaClipboard} from "react-icons/fa";
 
 function Sidebar() {
 
@@ -22,6 +22,12 @@ function Sidebar() {
         <Link to="/allusers" className="nav-link">
           <FaUsers/>
           <span> Listado de Usuarios</span>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/allcategories" className="nav-link">
+          <FaClipboard />
+          <span> Listado de Categorias</span>
         </Link>
       </li>
     </ul>

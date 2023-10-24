@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaUser, FaProductHunt, FaClipboard} from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function TopData() {
   //usamos endpoint de usuarios
@@ -72,7 +73,7 @@ function TopData() {
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{usersData.count}</div>
               </div>
-              <FaUser />  
+              <Link to="/allusers"><FaUser /></Link>  
             </div>
           </div>
         </div>
@@ -88,7 +89,7 @@ function TopData() {
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{productsData.count}</div>
               </div>
-              <FaProductHunt />
+              <Link to="/allproducts"><FaProductHunt /></Link>
             </div>
           </div>
         </div>
@@ -104,7 +105,7 @@ function TopData() {
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{categoriesData.count}</div>
               </div>
-              <FaClipboard />
+              <Link to="/allcategories"><FaClipboard /></Link>
             </div>
           </div>
         </div>
