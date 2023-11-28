@@ -53,6 +53,7 @@ function UserDetail() {
                             <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={userDetailData.user.avatar} alt="user"/>
                         </div>
                         <h2>{userDetailData.user.name}</h2>
+                        <h6>DNI: {userDetailData.user.dni}</h6>
                         <h6>Correo Electronico: {userDetailData.user.email}</h6>
                         <h6>Pais: {userDetailData.user.country}</h6>
                         <h6>Provincis: {userDetailData.user.state}</h6>
