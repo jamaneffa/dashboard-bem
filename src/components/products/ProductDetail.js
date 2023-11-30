@@ -21,7 +21,7 @@ function ProductDetail() {
       .then((data) => {
         setProductDetailData({
             product : data.product
-        });
+        })
       })
       .catch((error) => {
         console.error('Error al obtener el detalle de producto:', error);
@@ -57,11 +57,18 @@ function ProductDetail() {
                       <h6>Categoria: {productDetailData.product.category}</h6>
                       <h6>Marca: {productDetailData.product.brand}</h6>
                       <h6>Precio: $ {productDetailData.product.price}</h6>
-                      {productDetailData.product.stock === 0 ? (
-                        <h6>Stock Disponible: Sin Stock</h6>
-                      ) : (
-                        <h6>Stock Disponible: {productDetailData.product.stock}</h6>
-                      )}
+                      {productDetailData.product.stockInfo && productDetailData.product.stockInfo.length > 0 ? 
+                        (
+                          <div>
+                            <h6>Stock por Talle:</h6>
+                            {productDetailData.product.stockInfo.map((productStockSize, i) => (
+                              <h6 key={i + 1}>Talle: {productStockSize.size} - Cantidad: {productStockSize.stock}</h6>
+                            ))}
+                          </div>
+                        ) : (
+                          <h6>Stock: No tiene</h6>
+                        )
+                      }
                       {productDetailData.product.discount === 0 ? (
                         <h6>Descuento: Este producto no tiene descuento</h6>
                       ) : (

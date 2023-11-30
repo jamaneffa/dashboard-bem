@@ -32,7 +32,7 @@ function LastProduct() {
                       <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" src={lastProductData.product.image_url} alt="product"/>
                   </div>
                   <h3>{lastProductData.product.name}</h3>
-                  <p>Descripcion: {lastProductData.product.detail}</p>
+                  <p>Descripcion: {lastProductData.product.description}</p>
               </div>
             </div>
         </div>
